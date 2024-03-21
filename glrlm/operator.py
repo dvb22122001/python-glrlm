@@ -173,21 +173,23 @@ class Operator:
 
         # Compute SRE, which now returns a dictionary of angle-specific SRE values
         sre_features = self.__SRE()
+        print("sre_features", sre_features)
         
         # Other features remain unchanged for now
-        lre = self.__LRE()  # Still returns a single value
+        """lre = self.__LRE()  # Still returns a single value
         glu = self.__GLU()  # Still returns a single value
         rlu = self.__RLU()  # Still returns a single value
         rpc = self.__RPC()  # Still returns a single value
 
         feature_obj = FeatureGLRLM(
             sre=sre_features,  
-            lre=None,           
-            glu=None,          
+            lre=lre,           
+            glu=glu,          
             rlu=rlu,           
             rpc=rpc            
         )
 
-        return feature_obj
+        return feature_obj"""
+        return sre_features
 
     
