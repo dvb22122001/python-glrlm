@@ -49,5 +49,4 @@ class GLRLM:
         normalized_image = self.__normalizer.normalizationImage(grayscale_image, 0, level)
         degree_obj = self.__degree.create_matrix(normalized_image, level)
         feature_obj = self.__operator.create_feature(degree_obj)
-        #print(feature_obj)
         return feature_obj

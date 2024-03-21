@@ -18,9 +18,15 @@ class FeatureGLRLM:
     def __init__(self, sre, lre, glu, rlu, rpc):
         self.__title__ = "Feature Object from GLRLM"
         self.SRE = sre
-        #self.LRE = lre
-        #self.GLU = glu
-        #self.RLU = rlu
-        #self.RPC = rpc
-        #self.Features = [sre, lre, glu, rlu, rpc]
+        self.LRE = lre
+        self.GLU = glu
+        self.RLU = rlu
+        self.RPC = rpc
+        self.Features = self.Features = {
+            'SRE': sre,
+            'LRE': lre,
+            'GLU': glu,
+            'RLU': rlu,
+            'RPC': rpc
+        }
         

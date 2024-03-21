@@ -34,7 +34,7 @@ class Operator:
             SRE = round(SRE, 3)
             matSRE.append(SRE)
 
-        # print('Perhitungan SRE')
+        # print('Perhitungan SRE'
         return round(sum(matSRE),3)"""
         print("Entering __SRE method") 
         input_matrix = self.__degree_obj.Degrees
@@ -69,8 +69,7 @@ class Operator:
 
 
     def __LRE(self):
-        print("Entering __LRE method") 
-        input_matrix = self.__degree_obj.Degrees
+        """input_matrix = self.__degree_obj.Degrees
         matLRE = []
         for input_matrix in input_matrix:
             S = 0
@@ -89,11 +88,36 @@ class Operator:
             LRE = round(LRE, 3)
             matLRE.append(LRE)
         # print('Perhitungan LRE')
-        return round(sum(matLRE),3)
+        return round(sum(matLRE),3)"""
+        input_matrix = self.__degree_obj.Degrees
+        angles = [0, 45, 90, 135]
+        matLRE = {}
+        print("Number of matrices:", len(input_matrix)) 
+        for angle, input_matrix in zip(angles, input_matrix):
+            S = 0
+            LRE = 0
+            for x in range(input_matrix.shape[1]):
+                for y in range(input_matrix.shape[0]):
+                    S += input_matrix[y][x]
+
+            for x in range(input_matrix.shape[1]):
+                Rj = 0
+                for y in range(input_matrix.shape[0]):
+                    Rj += input_matrix[y][x]
+
+                LRE += (Rj * ((x + 1) ** 2)) / S
+                # print('( ', Rj ,' * ',((x + 1) ** 2), ' ) /', S)
+            LRE = round(LRE, 3)
+            matLRE[angle] = LRE
+            print(f"SRE for angle {angle}: {LRE}")
+            
+        
+        print(matLRE)
+        return matLRE
 
 
     def __GLU(self):
-        input_matrix = self.__degree_obj.Degrees
+        """input_matrix = self.__degree_obj.Degrees
         matGLU = []
         for input_matrix in input_matrix:
             S = 0
@@ -112,11 +136,36 @@ class Operator:
             GLU = round(GLU, 3)
             matGLU.append(GLU)
         # print('Perhitungan GLU')
-        return round(sum(matGLU),3)
+        return round(sum(matGLU),3)"""
+        input_matrix = self.__degree_obj.Degrees
+        angles = [0, 45, 90, 135]
+        matGLU = {}
+        print("Number of matrices:", len(input_matrix)) 
+        for angle, input_matrix in zip(angles, input_matrix):
+            S = 0
+            GLU = 0
+            for x in range(input_matrix.shape[1]):
+                for y in range(input_matrix.shape[0]):
+                    S += input_matrix[y][x]
+
+            for x in range(input_matrix.shape[1]):
+                Rj = 0
+                for y in range(input_matrix.shape[0]):
+                    Rj += input_matrix[y][x]
+
+                GLU += ((x + 1) ** 2) / S
+                # print('( ',((x + 1) ** 2), ' ) /', S)
+            GLU = round(GLU, 3)
+            matGLU[angle] = GLU
+            print(f"SRE for angle {angle}: {GLU}")
+            
+        
+        print(matGLU)
+        return matGLU
 
 
     def __RLU(self):
-        input_matrix = self.__degree_obj.Degrees
+        """input_matrix = self.__degree_obj.Degrees
         matRLU = []
         for input_matrix in input_matrix:
             S = 0
@@ -135,11 +184,36 @@ class Operator:
             RLU = round(RLU, 3)
             matRLU.append(RLU)
         # print('Perhitungan RLU')
-        return round(sum(matRLU),3)
+        return round(sum(matRLU),3)"""
+        input_matrix = self.__degree_obj.Degrees
+        angles = [0, 45, 90, 135]
+        matRLU = {}
+        print("Number of matrices:", len(input_matrix))
+        for angle, input_matrix in zip(angles, input_matrix):
+            S = 0
+            RLU = 0
+            for x in range(input_matrix.shape[1]):
+                for y in range(input_matrix.shape[0]):
+                    S += input_matrix[y][x]
+
+            for x in range(input_matrix.shape[1]):
+                Rj = 0
+                for y in range(input_matrix.shape[0]):
+                    Rj += input_matrix[y][x]
+
+                RLU += (Rj ** 2) / S
+                # print('( ', (Rj ** 2), ' ) /', S)
+            RLU = round(RLU, 3) 
+            matRLU[angle] = RLU
+            print(f"SRE for angle {angle}: {RLU}")
+            
+        
+        print(matRLU)
+        return matRLU
 
 
     def __RPC(self):
-        input_matrix = self.__degree_obj.Degrees
+        """input_matrix = self.__degree_obj.Degrees
         matRPC = []
         for input_matrix in input_matrix:
             S = 0
@@ -158,17 +232,42 @@ class Operator:
             RPC = round(RPC, 3)
             matRPC.append(RPC)
         # print('Perhitungan RPC')
-        return round(sum(matRPC),3)
+        return round(sum(matRPC),3)"""
+        input_matrix = self.__degree_obj.Degrees
+        angles = [0, 45, 90, 135]
+        matRPC = {}
+        print("Number of matrices:", len(input_matrix))
+        for angle, input_matrix in zip(angles, input_matrix):
+            S = 0
+            RPC = 0
+            for x in range(input_matrix.shape[1]):
+                for y in range(input_matrix.shape[0]):
+                    S += input_matrix[y][x]
+
+            for x in range(input_matrix.shape[1]):
+                Rj = 0
+                for y in range(input_matrix.shape[0]):
+                    Rj += input_matrix[y][x]
+
+                RPC += (Rj) / (input_matrix.shape[0]*input_matrix.shape[1])
+                # print('( ', (Rj), ' ) /', input_matrix.shape[0]*input_matrix.shape[1])
+            RPC = round(RPC, 3)
+            matRPC[angle] = RPC
+            print(f"SRE for angle {angle}: {RPC}")
+            
+        
+        print(matRPC)
+        return matRPC
     
-    """def create_feature(self, degree:DegreeGLRLM):
+    def create_feature(self, degree:DegreeGLRLM):
         self.__degree_obj = degree
         return FeatureGLRLM(
-            self.__SRE(), 
-            self.__LRE(), 
-            self.__GLU(), 
-            self.__RLU(), 
-            self.__RPC())"""
-    def create_feature(self, degree:DegreeGLRLM):
+            sre = self.__SRE(), 
+            lre = self.__LRE(), 
+            glu = self.__GLU(), 
+            rlu = self.__RLU(), 
+            rpc = self.__RPC())
+    """def create_feature(self, degree:DegreeGLRLM):
         self.__degree_obj = degree
 
         # Compute SRE, which now returns a dictionary of angle-specific SRE values
@@ -176,10 +275,10 @@ class Operator:
         print("sre_features", sre_features)
         
         # Other features remain unchanged for now
-        """lre = self.__LRE()  # Still returns a single value
-        glu = self.__GLU()  # Still returns a single value
-        rlu = self.__RLU()  # Still returns a single value
-        rpc = self.__RPC()  # Still returns a single value
+        lre = self.__LRE()  
+        glu = self.__GLU()  
+        rlu = self.__RLU()  
+        rpc = self.__RPC() 
 
         feature_obj = FeatureGLRLM(
             sre=sre_features,  
@@ -190,6 +289,4 @@ class Operator:
         )
 
         return feature_obj"""
-        return sre_features
-
     
