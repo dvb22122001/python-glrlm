@@ -1,1 +1,1 @@
-from .glrlm import GLRLM
+from glrlm import GLRLM
