@@ -39,6 +39,8 @@ class Operator:
         input_matrix = self.__degree_obj.Degrees
         angles = [0, 45, 90, 135]
         matSRE = {}
+        print("Number of matrices:", len(input_matrix)) 
+
         if len(self.__degree_obj.Degrees) != len(angles):
             raise ValueError("The number of GLRLM matrices does not match the number of specified angles.")
 
@@ -58,9 +60,10 @@ class Operator:
                 # print('( ',Rj,'/',S,' ) / ',(x+1)**2)
             SRE = round(SRE, 3)
             matSRE[angle] = SRE
-            print(matSRE)
+            print(f"SRE for angle {angle}: {SRE}")
+            
         
-
+        print(matSRE)
         return matSRE
 
 
