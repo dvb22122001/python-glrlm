@@ -15,7 +15,7 @@ class Operator:
         self.__degree_obj:DegreeGLRLM = None
 
     def __SRE(self):
-        input_matrix = self.__degree_obj.Degrees
+        """input_matrix = self.__degree_obj.Degrees
         matSRE = []
         for input_matrix in input_matrix:
             S = 0
@@ -35,7 +35,28 @@ class Operator:
             matSRE.append(SRE)
 
         # print('Perhitungan SRE')
-        return round(sum(matSRE),3)
+        return round(sum(matSRE),3)"""
+        input_matrix = self.__degree_obj.Degrees
+        angles = [0, 45, 90, 135]
+        matSRE = {}
+        for angle, input_matrix in zip(angles, input_matrix):
+            S = 0
+            SRE = 0
+            for x in range(input_matrix.shape[1]):
+                for y in range(input_matrix.shape[0]):
+                    S += input_matrix[y][x]
+
+            for x in range(input_matrix.shape[1]):
+                Rj = 0
+                for y in range(input_matrix.shape[0]):
+                    Rj += input_matrix[y][x]
+
+                SRE += (Rj/S)/((x+1)**2)
+                # print('( ',Rj,'/',S,' ) / ',(x+1)**2)
+            SRE = round(SRE, 3)
+            matSRE[angle] = SRE
+
+        return matSRE
 
 
     def __LRE(self):
