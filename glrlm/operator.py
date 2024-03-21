@@ -177,8 +177,8 @@ class Operator:
 
         feature_obj = FeatureGLRLM(
             sre=sre_features,  
-            lre=lre,           
-            glu=glu,          
+            lre=None,           
+            glu=None,          
             rlu=rlu,           
             rpc=rpc            
         )
