@@ -58,6 +58,8 @@ class Operator:
                 # print('( ',Rj,'/',S,' ) / ',(x+1)**2)
             SRE = round(SRE, 3)
             matSRE[angle] = SRE
+            print(matSRE)
+        
 
         return matSRE
 
