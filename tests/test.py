@@ -21,9 +21,9 @@ if img is not None:
         print("SRE1:", glrlm_features.SRE)
 
     # Print other features
-    print("LRE1:", glrlm_features.LRE)
-    print("GLU:", glrlm_features.GLU)
-    print("RLU:", glrlm_features.RLU)
-    print("RPC:", glrlm_features.RPC)
+    #print("LRE1:", glrlm_features.LRE)
+    #print("GLU:", glrlm_features.GLU)
+    #print("RLU:", glrlm_features.RLU)
+    #print("RPC:", glrlm_features.RPC)
 else:
     print(f"Failed to load image from {IMG_PATH}")
