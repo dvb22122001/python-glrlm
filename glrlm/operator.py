@@ -39,6 +39,9 @@ class Operator:
         input_matrix = self.__degree_obj.Degrees
         angles = [0, 45, 90, 135]
         matSRE = {}
+        if len(self.__degree_obj.Degrees) != len(angles):
+            raise ValueError("The number of GLRLM matrices does not match the number of specified angles.")
+
         for angle, input_matrix in zip(angles, input_matrix):
             S = 0
             SRE = 0
@@ -150,12 +153,34 @@ class Operator:
         # print('Perhitungan RPC')
         return round(sum(matRPC),3)
     
-    def create_feature(self, degree:DegreeGLRLM):
+    """def create_feature(self, degree:DegreeGLRLM):
         self.__degree_obj = degree
         return FeatureGLRLM(
             self.__SRE(), 
             self.__LRE(), 
             self.__GLU(), 
             self.__RLU(), 
-            self.__RPC())
+            self.__RPC())"""
+    def create_feature(self, degree_obj):
+        self.__degree_obj = degree_obj
+
+        # Compute SRE, which now returns a dictionary of angle-specific SRE values
+        sre_features = self.__SRE()
+        
+        # Other features remain unchanged for now
+        lre = self.__LRE()  # Still returns a single value
+        glu = self.__GLU()  # Still returns a single value
+        rlu = self.__RLU()  # Still returns a single value
+        rpc = self.__RPC()  # Still returns a single value
+
+        feature_obj = FeatureGLRLM(
+            sre=sre_features,  
+            lre=lre,           
+            glu=glu,          
+            rlu=rlu,           
+            rpc=rpc            
+        )
+
+        return feature_obj
+
     
