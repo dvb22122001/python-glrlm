@@ -36,6 +36,7 @@ class Operator:
 
         # print('Perhitungan SRE')
         return round(sum(matSRE),3)"""
+        print("Entering __SRE method") 
         input_matrix = self.__degree_obj.Degrees
         angles = [0, 45, 90, 135]
         matSRE = {}
@@ -68,6 +69,7 @@ class Operator:
 
 
     def __LRE(self):
+        print("Entering __LRE method") 
         input_matrix = self.__degree_obj.Degrees
         matLRE = []
         for input_matrix in input_matrix:
