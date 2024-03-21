@@ -18,10 +18,10 @@ if img is not None:
         for angle, value in glrlm_features.SRE.items():
             print(f"Angle {angle}: {value}")
     else:
-        print("SRE:", glrlm_features.SRE)
+        print("SRE1:", glrlm_features.SRE)
 
     # Print other features
-    print("LRE:", glrlm_features.LRE)
+    print("LRE1:", glrlm_features.LRE)
     print("GLU:", glrlm_features.GLU)
     print("RLU:", glrlm_features.RLU)
     print("RPC:", glrlm_features.RPC)
