@@ -163,8 +163,8 @@ class Operator:
             self.__GLU(), 
             self.__RLU(), 
             self.__RPC())"""
-    def create_feature(self, degree_obj):
-        self.__degree_obj = degree_obj
+    def create_feature(self, degree:DegreeGLRLM):
+        self.__degree_obj = degree
 
         # Compute SRE, which now returns a dictionary of angle-specific SRE values
         sre_features = self.__SRE()
